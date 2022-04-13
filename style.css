@@ -1,0 +1,16 @@
+li {
+    text-align: left;
+}
+
+li:hover {
+    cursor: pointer;
+    text-decoration: line-through;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
