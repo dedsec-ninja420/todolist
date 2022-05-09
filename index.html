@@ -5,26 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do List</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body oncontextmenu="return false;">
     <h1>To-Do List</h1>
-    <p>Click a to-do to erase it, use the textbox to add a new to-do.</p>
-    <ul>
-        <li>
-            Test 1
-        </li>
-        <li>
-            Test 2
-        </li>
-        <li>
-            Test 3
-        </li>
-    </ul>
-    <div>
-        <input type="text" id="todo">
-        <input type="submit" id="submit" value="Add">
+    <p>A simple to-do list.</p>
+    <div class="todoinput">
+      <input type="text" class="textbox" maxlength="27">
+      <input type="submit" class="addbutton" value="Add">  
     </div>
+      <h2 class="placeholder">Time to add some to-dos!</h2>
+    <div class="todolist">
+      <p>Workout</p>
+      <p>Wash Car</p>
+      <p>Learn JavaScript</p>
+    </div>
+    <p>Left-Click to mark as done, right-click to delete the to-do.</p>
+    <footer></footer>
 </body>
 <script src="script.js"></script>
 </html>

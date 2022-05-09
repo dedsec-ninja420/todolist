@@ -1,34 +1,51 @@
-const li = document.querySelectorAll("li");
-const textInput = document.getElementById("todo");
-const button = document.getElementById("submit");
-const ul = document.querySelector("ul");
+// TO-DO
+// Rendere placeholder visibile quando la lista viene svuotata
 
-const delOnClick = (element) => {
-    element.addEventListener("click", element.remove);
-}
+const inputBox = document.getElementsByClassName("textbox")[0];
+const placeholder = document.getElementsByClassName("placeholder")[0];
+const inputButton = document.getElementsByClassName("addbutton")[0];
+const list = document.getElementsByClassName("todolist")[0];
 
 const add = () => {
-    if (textInput.value != '') {
-        let newLi = document.createElement("li");
-        newLi.innerText = textInput.value;
-        ul.appendChild(newLi);
-        delOnClick(newLi);
-        textInput.value = '';       
+    if (inputBox.value != '') {
+        let newTodo = document.createElement("p");
+        newTodo.innerText = inputBox.value;
+        list.appendChild(newTodo);
+        newTodo.addEventListener("contextmenu", newTodo.remove);
+        newTodo.addEventListener("click",
+        function() {
+            newTodo.style.color = "grey";
+            newTodo.style.textDecoration = "line-through";
+        }
+        );
+        inputBox.value = '';       
     } else {
         alert("Please input some text.");
     }
 }
 
-const addByEnter = (e) => {
-    if (e.key === 'Enter') {
+const addByEnter = (event) => {
+    if (event.key === 'Enter') {
         add();
-        textInput.value = '';
+        inputBox.value = '';
     }
 }
 
-for (let i = 0; i < li.length; i++) {
-    delOnClick(li[i]);
+const checkListLength = () => {
+    if (list.childElementCount == 0) {
+        placeholder.style.display = "flex";
+    }
 }
 
-button.addEventListener("click", add);
-textInput.addEventListener("keypress", addByEnter);
+for (let i = 0; i < list.childElementCount; i++) {
+    list.children[i].addEventListener("contextmenu", list.children[i].remove);
+    list.children[i].addEventListener("click",
+    function() {
+        list.children[i].style.color = "grey";
+        list.children[i].style.textDecoration = "line-through";
+    }
+    );
+}
+
+inputButton.addEventListener("click", add);
+inputBox.addEventListener("keypress", addByEnter);
