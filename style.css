@@ -15,6 +15,10 @@ h1 {
     font-family: 'Pacifico', cursive;
 }
 
+.hidden {
+    display: none;
+}
+
 h1 + p {
     position: relative;
     bottom: 30px;
@@ -94,6 +98,15 @@ footer {
     }
 
     div + p {
+        visibility: hidden;
+    }
+
+    div + p::after {
+        content: "Single press to mark as done, long press to delete the to-do";
+        visibility: visible;
+        display: flex;
+        justify-content: center;
         font-size: 12px;
     }
+
 }
