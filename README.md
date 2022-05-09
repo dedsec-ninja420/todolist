@@ -1,3 +1,4 @@
 # todolist
-A simple JS project consisting in a to-do list.
+A simple, responsive JS project consisting in a to-do list.
+Still needs some features and improvements.
 https://dedsec-ninja420.github.io/todolist/
