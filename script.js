@@ -1,4 +1,3 @@
-
 const inputBox = document.getElementsByClassName("textbox")[0];
 const placeholder = document.getElementsByClassName("placeholder")[0];
 const inputButton = document.getElementsByClassName("addbutton")[0];
