@@ -1,9 +1,8 @@
-// TO-DO
-// Rendere placeholder visibile quando la lista viene svuotata
 
 const inputBox = document.getElementsByClassName("textbox")[0];
 const placeholder = document.getElementsByClassName("placeholder")[0];
 const inputButton = document.getElementsByClassName("addbutton")[0];
+const info = document.getElementsByClassName("info")[0];
 const list = document.getElementsByClassName("todolist")[0];
 
 const add = () => {
@@ -18,7 +17,8 @@ const add = () => {
             newTodo.style.textDecoration = "line-through";
         }
         );
-        inputBox.value = '';       
+        inputBox.value = '';
+        checkListLength();       
     } else {
         alert("Please input some text.");
     }
@@ -34,7 +34,15 @@ const addByEnter = (event) => {
 const checkListLength = () => {
     if (list.childElementCount == 0) {
         placeholder.style.display = "flex";
+        list.style.display = "none";
+        info.style.display = "none";
+
+    } else {
+        placeholder.style.display = "none";
+        list.style.display = "flex";
+        info.style.display = "block";
     }
+    setTimeout(checkListLength, 1);
 }
 
 for (let i = 0; i < list.childElementCount; i++) {
@@ -49,3 +57,4 @@ for (let i = 0; i < list.childElementCount; i++) {
 
 inputButton.addEventListener("click", add);
 inputBox.addEventListener("keypress", addByEnter);
+checkListLength();
